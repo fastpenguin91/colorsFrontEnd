@@ -35,7 +35,6 @@ class App extends Component {
         </Route>
         <Route exact path='/colors/:page'>
           <ColorList2 />
-          <ColorList />
         </Route>
       </Switch>
       </Router>
