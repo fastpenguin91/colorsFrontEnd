@@ -14,8 +14,6 @@ const httpLink = createHttpLink({
     uri: process.env.REACT_APP_API_URL //'http://localhost:4000'  //'https://sleepy-dusk-27683.herokuapp.com/' 
   })
 
-  console.log("ENV Var here:")
-  console.log(process.env)
   
   // 3
   const client = new ApolloClient({
