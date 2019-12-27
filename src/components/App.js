@@ -6,7 +6,6 @@ import {
   Redirect
 } from "react-router-dom";
 import Color from "./Color";
-import "../styles/App.css";
 import ColorList from "./ColorList";
 
 class App extends Component {

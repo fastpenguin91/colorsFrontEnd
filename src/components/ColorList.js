@@ -23,8 +23,6 @@ function GetNextPage(currentPage, listLength) {
   }
 }
 
-console.log("yooo");
-
 function ColorList() {
   let match = useRouteMatch();
 
