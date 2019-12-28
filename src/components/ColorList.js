@@ -5,7 +5,9 @@ import gql from "graphql-tag";
 import { BrowserRouter as Router, Link, useRouteMatch } from "react-router-dom";
 
 function GetPreviousPage(currentPage) {
-  if (currentPage !== 0) {
+  if (currentPage != 0) {
+    console.log("current page")
+    console.log(currentPage)
     return (
       <Link to={"/colors/" + (parseInt(currentPage) - 1)}>
         <span style={{ margin: "10px" }}>previous</span>

@@ -15,6 +15,7 @@ const httpLink = createHttpLink({
   //uri: 'http://localhost:4000'
   uri: 'https://eu1.prisma.sh/fastpenguin91-c6edf8/color-swatches-server/dev'
   //'https://sleepy-dusk-27683.herokuapp.com/'
+//  uri: 'https://us1.prisma.sh/fastpenguin91-c6edf8/finaltest/dev'
 });
 
 
