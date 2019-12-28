@@ -1,8 +1,8 @@
 import React from "react";
 import { Query } from "react-apollo";
 import gql from "graphql-tag";
-import { BrowserRouter as Link, useRouteMatch } from "react-router-dom";
-//import { BrowserRouter as Router, Link, useRouteMatch } from "react-router-dom";
+//import { BrowserRouter as Link, useRouteMatch } from "react-router-dom";
+import { BrowserRouter as Router, Link, useRouteMatch } from "react-router-dom";
 
 function GetPreviousPage(currentPage) {
   if (currentPage !== 0) {
