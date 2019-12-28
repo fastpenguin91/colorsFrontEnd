@@ -3,35 +3,19 @@ import { BrowserRouter as Router, useRouteMatch } from "react-router-dom";
 import { Query } from "react-apollo";
 import gql from "graphql-tag";
 
-
-/*const COLOR_QUERY = gql`
+const COLOR_QUERY = gql`
   query {
     colors {
       color_code
       id
     }
   }
-`;*/
-
+`;
 
 let correctColor;
 
 function Color() {
   let match = useRouteMatch();
-  console.log("match outside scope! ")
-  console.log(match)
-
-const COLOR_QUERY = gql`
-  query {
-    color(where: {
-      id: "${match.params.id}"
-    }) {
-      color_code
-      id
-    }
-  }
-`;
-
 
   return (
     <Query query={COLOR_QUERY}>
@@ -43,12 +27,9 @@ const COLOR_QUERY = gql`
 
         const colorsToRender = data.colors;
 
-        console.log("data .colors...")
-        console.log(data)
-
-        /*correctColor = colorsToRender.find(function(elem, index, arr) {
+        correctColor = colorsToRender.find(function(elem, index, arr) {
           return elem.id == match.params.id;
-        });*/
+        });
 
         return (
           <div>
@@ -56,7 +37,7 @@ const COLOR_QUERY = gql`
               <div
                 style={{
                   boxShadow: "2px 2px 2px 2px",
-                  background: data.color.color_code,
+                  background: correctColor.color_code,
                   display: "inline-block",
                   margin: "10px",
                   width: "150px",
@@ -75,7 +56,7 @@ const COLOR_QUERY = gql`
                     width: "100%"
                   }}
                 >
-                  {data.color.color_code}
+                  {correctColor.color_code}
                 </p>
               </div>
             </div>

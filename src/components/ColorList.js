@@ -1,10 +1,11 @@
 import React from "react";
 import { Query } from "react-apollo";
 import gql from "graphql-tag";
-import { BrowserRouter as Router, Link, useRouteMatch } from "react-router-dom";
+import { BrowserRouter as Link, useRouteMatch } from "react-router-dom";
+//import { BrowserRouter as Router, Link, useRouteMatch } from "react-router-dom";
 
 function GetPreviousPage(currentPage) {
-  if (currentPage != 0) {
+  if (currentPage !== 0) {
     return (
       <Link to={"/colors/" + (parseInt(currentPage) - 1)}>
         <span style={{ margin: "10px" }}>previous</span>
@@ -22,6 +23,7 @@ function GetNextPage(currentPage, listLength) {
     );
   }
 }
+console.log("yooo dawg again");
 
 function ColorList() {
   let match = useRouteMatch();
@@ -30,15 +32,21 @@ function ColorList() {
 
   let skipNum = 5 * match.params.page;
   const COLORS_QUERY = gql`query { colors( first: 5 skip: ${skipNum}) { id color_code } }`;
-
+console.log("colors_query")
+console.log(COLORS_QUERY)
   return (
     <Query query={COLORS_QUERY}>
       {({ loading, error, data }) => {
         if (loading) {
           return <div>Fetching</div>;
         }
-        if (error) return <div>Error</div>;
-
+      if (error) {
+        console.log("error")
+        console.log(error)
+        return <div>Error: </div>;
+      }
+        console.log("data")
+        console.log(data)
         const colorsToRender = data.colors;
 
         return (
