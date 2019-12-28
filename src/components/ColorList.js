@@ -23,7 +23,6 @@ function GetNextPage(currentPage, listLength) {
     );
   }
 }
-console.log("yooo dawg again");
 
 function ColorList() {
   let match = useRouteMatch();
@@ -32,8 +31,6 @@ function ColorList() {
 
   let skipNum = 5 * match.params.page;
   const COLORS_QUERY = gql`query { colors( first: 5 skip: ${skipNum}) { id color_code } }`;
-console.log("colors_query")
-console.log(COLORS_QUERY)
   return (
     <Query query={COLORS_QUERY}>
       {({ loading, error, data }) => {

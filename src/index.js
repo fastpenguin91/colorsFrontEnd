@@ -11,11 +11,12 @@ import { InMemoryCache } from "apollo-cache-inmemory";
 
 // 2
 const httpLink = createHttpLink({
-  uri: process.env.REACT_APP_API_URL //'http://localhost:4000'  //'https://sleepy-dusk-27683.herokuapp.com/'
+  //uri: //process.env.REACT_APP_API_URL
+  //uri: 'http://localhost:4000'
+  uri: 'https://eu1.prisma.sh/fastpenguin91-c6edf8/color-swatches-server/dev'
+  //'https://sleepy-dusk-27683.herokuapp.com/'
 });
 
-console.log("helloooo in index.js")
-console.log(process.env.REACT_APP_API_URL)
 
 // 3
 const client = new ApolloClient({
