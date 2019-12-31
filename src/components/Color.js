@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, useRouteMatch } from "react-router-dom";
 import { Query } from "react-apollo";
 import gql from "graphql-tag";
-
+import Sidebar from './Sidebar';
 /*const COLOR_QUERY = gql`
   query {
     colors {
@@ -30,6 +30,7 @@ const COLOR_QUERY = gql`
 
 
   return (
+    <div><Sidebar />
     <Query query={COLOR_QUERY}>
       {({ loading, error, data }) => {
         if (loading) {
@@ -44,16 +45,16 @@ const COLOR_QUERY = gql`
 //        });
 
         return (
-          <div>
+          <div style={{marginLeft: "17%"}}>
             <div style={{ display: "inline-block" }}>
               <div
                 style={{
-                  boxShadow: "2px 2px 2px 2px",
+                  border: "1px solid black",
                   background: data.color.color_code,
                   display: "inline-block",
                   margin: "10px",
-                  width: "150px",
-                  height: "150px",
+                  width: "650px",
+                  height: "650px",
                   position: "relative"
                 }}
               >
@@ -65,7 +66,8 @@ const COLOR_QUERY = gql`
                     margin: "0",
                     paddingBottom: "10px",
                     textAlign: "center",
-                    width: "100%"
+                    width: "100%",
+                    fontSize: "48px",
                   }}
                 >
                   {data.color.color_code}
@@ -76,6 +78,7 @@ const COLOR_QUERY = gql`
         );
       }}
     </Query>
+    </div>
   );
 }
 
