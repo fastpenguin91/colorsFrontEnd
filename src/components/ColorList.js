@@ -95,10 +95,10 @@ function ColorList() {
 
         return (
           <div>
-            <div style={{ marginLeft: "17%"}}>
+            <div style={{ marginLeft: "17%", textAlign: "center", marginTop: "50px"}}>
               {numOfPagesArr.map(page => (
                 <Link to={"/colors/" + page}>
-                  <span style={{ margin: "10px" }}>{page}</span>
+                  <span style={{ margin: "30px", fontSize: "32px", paddingBottom: "100px" }}>{page}</span>
                 </Link>
               ))}
             </div>
