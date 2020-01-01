@@ -3,6 +3,7 @@ import { BrowserRouter as Router, useRouteMatch } from "react-router-dom";
 import { Query } from "react-apollo";
 import gql from "graphql-tag";
 import Sidebar from './Sidebar';
+import Header from './Header';
 /*const COLOR_QUERY = gql`
   query {
     colors {
@@ -30,7 +31,9 @@ const COLOR_QUERY = gql`
 
 
   return (
-    <div><Sidebar />
+    <div>
+      <Header />
+      <Sidebar />
     <Query query={COLOR_QUERY}>
       {({ loading, error, data }) => {
         if (loading) {
@@ -45,7 +48,7 @@ const COLOR_QUERY = gql`
 //        });
 
         return (
-          <div style={{marginLeft: "17%"}}>
+          <div style={{marginLeft: "17%", marginTop: "75px"}}>
             <div style={{ display: "inline-block" }}>
               <div
                 style={{

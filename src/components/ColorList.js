@@ -4,7 +4,7 @@ import { Query } from "react-apollo";
 import gql from "graphql-tag";
 //import { BrowserRouter as Link, useRouteMatch } from "react-router-dom";
 import { BrowserRouter as Router, Link, useRouteMatch } from "react-router-dom";
-
+import Header from "./Header";
 
 
 function ColorList() {
@@ -15,6 +15,7 @@ function ColorList() {
   const COUNT_COLORS_QUERY = gql`query { colors { id color_code } }`;
   return (
     <div>
+      <Header />
     <Query query={COLORS_QUERY}>
       {({ loading, error, data }) => {
         if (loading) {
@@ -31,7 +32,8 @@ function ColorList() {
           <div>
             <Sidebar />
             <div style={{
-              marginLeft: "17%"
+              marginLeft: "17%",
+              marginTop: "75px"
             }}>
               {colorsToRender.map(color => (
                 <Link to={"/color/" + color.id}>
