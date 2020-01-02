@@ -18,7 +18,7 @@ let correctColor;
 function Color() {
   let match = useRouteMatch();
 
-const COLOR_QUERY = gql`
+/*const COLOR_QUERY = gql`
   query {
     color(where: {
       id: "${match.params.id}"
@@ -27,8 +27,16 @@ const COLOR_QUERY = gql`
       id
     }
   }
-`;
+`;*/
 
+const COLOR_QUERY = gql`
+  query {
+    color(id: "${match.params.id}"){
+      color_code
+      id
+    }
+  }
+`;
 
   return (
     <div>

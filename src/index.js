@@ -13,7 +13,8 @@ import { InMemoryCache } from "apollo-cache-inmemory";
 const httpLink = createHttpLink({
   //uri: //process.env.REACT_APP_API_URL
   //uri: 'http://localhost:4000'
-  uri: 'https://eu1.prisma.sh/fastpenguin91-c6edf8/color-swatches-server/dev'
+  uri: 'https://frozen-sierra-97329.herokuapp.com/'
+  //uri: 'https://eu1.prisma.sh/fastpenguin91-c6edf8/color-swatches-server/dev'
   //'https://sleepy-dusk-27683.herokuapp.com/'
 //  uri: 'https://us1.prisma.sh/fastpenguin91-c6edf8/finaltest/dev'
 });

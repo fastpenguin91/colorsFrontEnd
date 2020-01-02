@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Link, useRouteMatch } from "react-router-dom";
 
 const COLORS_QUERY = gql`
   query {
-    colors {
+    randomColor {
       id
       color_code
     }
@@ -25,12 +25,13 @@ function Sidebar() {
             console.log(error);
             return <div>Error: </div>;
           }
+          console.log("new data with random color")
+          console.log(data.randomColor.color_code)
           const colorsToRender = data.colors;
-          const numOfPages = Math.ceil(data.colors.length / 12);
           let numOfPagesArr = [];
           console.log("random element:");
-          randomElem =
-            data.colors[Math.floor(Math.random() * data.colors.length)];
+//          randomElem =
+//            data.colors[Math.floor(Math.random() * data.colors.length)];
 
           return (
             <div
@@ -41,7 +42,7 @@ function Sidebar() {
                 position: "fixed",
                 textAlign: "center"
               }}
-            ><Link to={"/color/" + randomElem.id}>
+            ><Link to={"/color/" + data.randomColor.id}>
               <button
                 style={{
                   marginTop: "150px",
@@ -57,7 +58,8 @@ function Sidebar() {
               >
                 Random Color
               </button></Link>
-              <p
+              <Link to={"/color/ck4x91o61cwhd0993eqqawpyh"}>
+                <p
                 style={{
                   textAlign: "left",
                   fontSize: "24px",
@@ -66,7 +68,8 @@ function Sidebar() {
               >
                 Red
               </p>
-              <p
+              </Link>
+              <Link to={"/color/ck4x95qtucxml0993wexyfxv1"}><p
                 style={{
                   textAlign: "left",
                   fontSize: "24px",
@@ -74,7 +77,7 @@ function Sidebar() {
                 }}
               >
                 Orange
-              </p>
+              </p></Link>
               <p
                 style={{
                   textAlign: "left",
