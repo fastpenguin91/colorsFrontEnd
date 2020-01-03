@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Query } from "react-apollo";
 import gql from "graphql-tag";
 import { BrowserRouter as Router, Link, useRouteMatch } from "react-router-dom";
+import RandomButton from './RandomButton';
 
 const COLORS_QUERY = gql`
   query {
@@ -11,8 +12,10 @@ const COLORS_QUERY = gql`
     }
   }
 `;
+
 let randomElem;
 function Sidebar() {
+
   return (
     <div>
       <Query query={COLORS_QUERY}>
@@ -25,13 +28,13 @@ function Sidebar() {
             console.log(error);
             return <div>Error: </div>;
           }
-          console.log("new data with random color")
-          console.log(data.randomColor.color_code)
+          console.log("new data with random color");
+          console.log(data.randomColor.color_code);
           const colorsToRender = data.colors;
           let numOfPagesArr = [];
           console.log("random element:");
-//          randomElem =
-//            data.colors[Math.floor(Math.random() * data.colors.length)];
+          //          randomElem =
+          //            data.colors[Math.floor(Math.random() * data.colors.length)];
 
           return (
             <div
@@ -42,42 +45,30 @@ function Sidebar() {
                 position: "fixed",
                 textAlign: "center"
               }}
-            ><Link to={"/color/" + data.randomColor.id}>
-              <button
-                style={{
-                  marginTop: "150px",
-                  background: "white",
-                  borderRadius: "5px",
-                  padding: "10px",
-                  fontSize: "18px",
-                  borderWidth: "2px 2px 2px 2px",
-                  borderColor: "black",
-                  padding: "15px 25px 15px 25px",
-                  fontWeight: "bold"
-                }}
-              >
-                Random Color
-              </button></Link>
+            >
+              <RandomButton />
               <Link to={"/color/ck4x91o61cwhd0993eqqawpyh"}>
                 <p
-                style={{
-                  textAlign: "left",
-                  fontSize: "24px",
-                  paddingLeft: "50px"
-                }}
-              >
-                Red
-              </p>
+                  style={{
+                    textAlign: "left",
+                    fontSize: "24px",
+                    paddingLeft: "50px"
+                  }}
+                >
+                  Red
+                </p>
               </Link>
-              <Link to={"/color/ck4x95qtucxml0993wexyfxv1"}><p
-                style={{
-                  textAlign: "left",
-                  fontSize: "24px",
-                  paddingLeft: "50px"
-                }}
-              >
-                Orange
-              </p></Link>
+              <Link to={"/color/ck4x95qtucxml0993wexyfxv1"}>
+                <p
+                  style={{
+                    textAlign: "left",
+                    fontSize: "24px",
+                    paddingLeft: "50px"
+                  }}
+                >
+                  Orange
+                </p>
+              </Link>
               <p
                 style={{
                   textAlign: "left",
