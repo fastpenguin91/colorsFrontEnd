@@ -69,7 +69,7 @@ function Sidebar() {
                   Orange
                 </p>
               </Link>
-              <p
+        <Link to={"/color/ck4xsb6ha1dbt09225qwlqwmw"}><p
                 style={{
                   textAlign: "left",
                   fontSize: "24px",
@@ -77,8 +77,8 @@ function Sidebar() {
                 }}
               >
                 Yellow
-              </p>
-              <p
+              </p></Link>
+        <Link to={"/color/ck49m8kdx9khr0964dtsodo8m"}><p
                 style={{
                   textAlign: "left",
                   fontSize: "24px",
@@ -86,8 +86,8 @@ function Sidebar() {
                 }}
               >
                 Green
-              </p>
-              <p
+              </p></Link>
+        <Link to={"/color/ck4xsfxk61ehy0922vpjb0zc7"}><p
                 style={{
                   textAlign: "left",
                   fontSize: "24px",
@@ -95,8 +95,8 @@ function Sidebar() {
                 }}
               >
                 Blue
-              </p>
-              <p
+              </p></Link>
+        <Link to={"/color/ck4xsjbpai3tv0993nhk42s6c"}><p
                 style={{
                   textAlign: "left",
                   fontSize: "24px",
@@ -104,8 +104,8 @@ function Sidebar() {
                 }}
               >
                 Purple
-              </p>
-              <p
+              </p></Link>
+        <Link to={"/color/ck4xsks6b1gbl0922t8znwzr4"}><p
                 style={{
                   textAlign: "left",
                   fontSize: "24px",
@@ -113,8 +113,8 @@ function Sidebar() {
                 }}
               >
                 Brown
-              </p>
-              <p
+              </p></Link>
+        <Link to={"/color/ck4xslt5v1gk70922737ixrma"}><p
                 style={{
                   textAlign: "left",
                   fontSize: "24px",
@@ -122,7 +122,7 @@ function Sidebar() {
                 }}
               >
                 Gray
-              </p>
+              </p></Link>
             </div>
           );
         }}
