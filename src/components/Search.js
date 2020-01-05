@@ -1,7 +1,12 @@
+/* I deviated from the design because I'm still figuring out how to get a COUNT in the same query.
+Would like to do it properly, but theres not a whole lot of info on the aggregate type which would allow me to
+count. ... oh.. I just realized I might be able to do the count calculation in the resolver.*/
+
 import React, { useState, useEffect } from "react";
 //import logo from "./logo.svg";
 //import "./App.css";
 
+import Sidebar from "./Sidebar";
 import { Query } from "react-apollo";
 import { BrowserRouter as Router, Link, useRouteMatch } from "react-router-dom";
 import gql from "graphql-tag";
@@ -33,6 +38,8 @@ function Search() {
 
   return (
     <div>
+      <Sidebar />
+      <div style={{textAlign: "center", margin: "20px", fontWeight: "bolder", fontSize: "28px"}}>
       <label>
         Search:
         <input
@@ -42,7 +49,7 @@ function Search() {
           onChange={e => setFilter(e.target.value)}
           autoFocus
         />
-      </label>
+      </label></div>
       <div
         style={{
           marginLeft: "17%",
