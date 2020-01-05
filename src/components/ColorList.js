@@ -8,6 +8,8 @@ import Header from "./Header";
 
 function ColorList() {
   let match = useRouteMatch();
+  console.log("current match in colorList");
+  console.log(match.params);
 
   let skipNum = 12 * match.params.page;
   const COLORS_QUERY = gql`query {

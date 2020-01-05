@@ -22,7 +22,8 @@ class App extends Component {
           <Route exact path="/colors/:page">
             <ColorList />
           </Route>
-          <Route exact path="/search">
+          <Route exact path="/search" render={() => <Redirect to="/search/0" />} />
+          <Route exact path="/search/:page">
             <Search />
           </Route>
         </Switch>
