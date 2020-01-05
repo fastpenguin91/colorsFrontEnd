@@ -8,6 +8,7 @@ import {
 import Color from "./Color";
 import "../styles/App.css";
 import ColorList from "./ColorList";
+import Search from './Search';
 
 class App extends Component {
   render() {
@@ -20,6 +21,9 @@ class App extends Component {
           </Route>
           <Route exact path="/colors/:page">
             <ColorList />
+          </Route>
+          <Route exact path="/search">
+            <Search />
           </Route>
         </Switch>
       </Router>

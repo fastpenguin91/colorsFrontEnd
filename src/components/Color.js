@@ -6,30 +6,12 @@ import Sidebar from "./Sidebar";
 import Header from "./Header";
 import LittleColors from "./LittleColors";
 
-/*const COLOR_QUERY = gql`
-  query {
-    colors {
-      color_code
-      id
-    }
-  }
-`;*/
 
 let correctColor;
 
 function Color() {
   let match = useRouteMatch();
 
-  /*const COLOR_QUERY = gql`
-  query {
-    color(where: {
-      id: "${match.params.id}"
-    }) {
-      color_code
-      id
-    }
-  }
-`;*/
 
   const COLOR_QUERY = gql`
   query {

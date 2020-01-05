@@ -11,6 +11,7 @@ function Header() {
       top: "0",
       zIndex: "9"}}>
         <img src={logo} style={{height: "50px", width: "50px", marginLeft: "20px", marginTop: "10px"}} />
+        <input style={{float: "right", margin: "15px"}} type="text" placeholder="Search..." />
     </div>
   );
 }
