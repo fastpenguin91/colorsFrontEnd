@@ -7,7 +7,6 @@ import {
 } from "react-router-dom";
 import Color from "./Color";
 import "../styles/App.css";
-import ColorList from "./ColorList";
 import Search from './Search';
 
 class App extends Component {
@@ -15,15 +14,12 @@ class App extends Component {
     return (
       <Router>
         <Switch>
-          <Route exact path="/" render={() => <Redirect to="/colors/0" />} />
+          <Route exact path="/" render={() => <Redirect to="/page/0" />} />
           <Route path="/color/:id">
             <Color />
           </Route>
-          <Route exact path="/colors/:page">
-            <ColorList />
-          </Route>
-          <Route exact path="/search" render={() => <Redirect to="/search/0" />} />
-          <Route exact path="/search/:page">
+          <Route exact path="/page" render={() => <Redirect to="/page/0" />} />
+          <Route exact path="/page/:page">
             <Search />
           </Route>
         </Switch>

@@ -1,94 +1,75 @@
-/* I deviated from the design because I'm still figuring out how to get a COUNT in the same query.
-Would like to do it properly, but theres not a whole lot of info on the aggregate type which would allow me to
-count. ... oh.. I just realized I might be able to do the count calculation in the resolver.*/
-
-import React, { useState, useEffect } from "react";
-//import logo from "./logo.svg";
-//import "./App.css";
+import React, { useState } from "react";
+import "../styles/index.css";
+import logo from '../logo.svg';
 
 import Sidebar from "./Sidebar";
-import { Query } from "react-apollo";
-import { BrowserRouter as Router, Link, useRouteMatch } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Link,
+  useRouteMatch,
+  Redirect
+} from "react-router-dom";
 import gql from "graphql-tag";
 import { useQuery } from "@apollo/react-hooks";
 
 function Search() {
+  let match = useRouteMatch();
+  let skipNum = 12 * match.params.page;
 
-
-
-  const GET_FILTERED_COLORS = gql`
-  query Colors_Search_Query($filter: String!) {
-    colors(filter: $filter) {
-      id
-      color_code 
+  const GET_FEED_COLORS = gql`
+    query Feed_Query($filter: String!) {
+      feed(filter: $filter, first: 12, skip: ${skipNum}) {
+        count
+        colors {
+          color_code
+          id
+        }
+      }
     }
-  }
-`;
-
+  `;
 
   const [filter, setFilter] = useState("");
 
-
-  const { loading, error, data } = useQuery(GET_FILTERED_COLORS, {
+  const { loading, error, data } = useQuery(GET_FEED_COLORS, {
     variables: { filter }
   });
 
   if (loading) return "Loading...";
-  if (error) return `Error! ${error.message}`;
+  if (error) return <Redirect to="/" />; 
+
+  const numOfPages = Math.ceil(data.feed.count / 12);
+  let numOfPagesArr = [];
+  for (let i = 0; i < numOfPages; i++) {
+    numOfPagesArr.push(i);
+  }
 
   return (
     <div>
+      <div class="header">
+        <img src={logo} />
+        <label class="header_label">
+          Search:
+          <input id="searchID" type="text" value={filter} onChange={e => setFilter(e.target.value)} autoFocus />
+        </label>
+      </div>
       <Sidebar />
-      <div style={{textAlign: "center", margin: "20px", fontWeight: "bolder", fontSize: "28px"}}>
-      <label>
-        Search:
-        <input
-          id="searchID"
-          type="text"
-          value={filter}
-          onChange={e => setFilter(e.target.value)}
-          autoFocus
-        />
-      </label></div>
-      <div
-        style={{
-          marginLeft: "17%",
-          marginTop: "75px"
-        }}
-      >
-        {data.colors.map(color => (
+      <div class="sidebar_adjust">
+      <h1 class="sidebar_adjust">Count: {data.feed.count}</h1>
+        {data.feed.colors.map(color => (
           <Link to={"/color/" + color.id}>
             <div style={{ display: "inline-block" }}>
-              <div
-                style={{
-                  boxShadow: "2px 2px 2px 2px",
-                  background: color.color_code,
-                  display: "inline-block",
-                  margin: "30px",
-                  width: "300px",
-                  height: "300px",
-                  position: "relative",
-                  borderRadius: "10px"
-                }}
-              >
-                <p
-                  style={{
-                    background: "white",
-                    position: "absolute",
-                    bottom: "0",
-                    margin: "0",
-                    paddingBottom: "10px",
-                    paddingTop: "10px",
-                    textAlign: "center",
-                    width: "100%",
-                    borderRadius: "0px 0px 10px 10px",
-                    fontSize: "24px"
-                  }}
-                >
-                  {color.color_code}
-                </p>
+              <div class="color_obj" style={{ background: color.color_code,}} >
+                <p> {color.color_code} </p>
               </div>
             </div>
+          </Link>
+        ))}
+      </div>
+      <div class="sidebar_adjust page_numbers"
+      >
+        {numOfPagesArr.map(page => (
+          <Link to={"/page/" + page}>
+            <span class="page_number">{page}</span>
           </Link>
         ))}
       </div>

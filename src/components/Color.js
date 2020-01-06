@@ -5,13 +5,10 @@ import gql from "graphql-tag";
 import Sidebar from "./Sidebar";
 import Header from "./Header";
 import LittleColors from "./LittleColors";
-
-
-let correctColor;
+import "../styles/index.css";
 
 function Color() {
   let match = useRouteMatch();
-
 
   const COLOR_QUERY = gql`
   query {
@@ -33,40 +30,11 @@ function Color() {
           }
           if (error) return <div>Error</div>;
 
-          //        const colorsToRender = data.colors;
-
-          //        correctColor = colorsToRender.find(function(elem, index, arr) {
-          //          return elem.id == match.params.id;
-          //        });
-
           return (
-            <div style={{ marginLeft: "17%", marginTop: "75px" }}>
+            <div class="sidebar_adjust">
               <div style={{ display: "inline-block" }}>
-                <div
-                  style={{
-                    border: "1px solid black",
-                    background: data.color.color_code,
-                    display: "inline-block",
-                    margin: "10px",
-                    width: "650px",
-                    height: "650px",
-                    position: "relative"
-                  }}
-                >
-                  <p
-                    style={{
-                      background: "white",
-                      position: "absolute",
-                      bottom: "0",
-                      margin: "0",
-                      paddingBottom: "10px",
-                      textAlign: "center",
-                      width: "100%",
-                      fontSize: "48px"
-                    }}
-                  >
-                    {data.color.color_code}
-                  </p>
+                <div class="individual_color" style={{background: data.color.color_code}}>
+                  <p>{data.color.color_code}</p>
                 </div>
               </div>
               <LittleColors />

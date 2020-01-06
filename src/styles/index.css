@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Source+Serif+Pro&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Source+Serif+Pro&display=swap");
 
 body {
   margin: 0;
@@ -19,7 +19,7 @@ input {
 }
 
 .background-gray {
-  background-color: rgb(246,246,239);
+  background-color: rgb(246, 246, 239);
 }
 
 .f11 {
@@ -42,4 +42,132 @@ input {
   border-color: buttonface;
   cursor: pointer;
   max-width: 250px;
+}
+
+.header {
+  width: 100%;
+  height: 75px;
+  background: #3e5780 !important;
+  position: fixed;
+  top: 0;
+  z-index: 9;
+}
+
+.header_label {
+  float: right;
+  margin: 20px;
+  font-size: 24px;
+}
+
+.sidebar_adjust {
+  margin-left: 17%;
+  margin-top: 75px;
+}
+
+.page_numbers {
+  text-align: center;
+}
+
+.page_number {
+  margin: 30px;
+  font-size: 32px;
+  padding-bottom: 100px;
+  text-decoration: underline;
+}
+
+.color_obj {
+  box-shadow: 2px 2px 2px 2px;
+  display: inline-block;
+  margin: 30px;
+  width: 300px;
+  height: 300px;
+  position: relative;
+  border-radius: 10px;
+}
+
+.color_obj p {
+  background: white;
+  position: absolute;
+  bottom: 0;
+  margin: 0;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  text-align: center;
+  width: 100%;
+  border-radius: 0px 0px 10px 10px;
+  font-size: 24px;
+}
+
+.individual_color {
+  border: 1px solid black;
+  display: inline-block;
+  margin: 10px;
+  width: 650px;
+  height: 650px;
+  position: relative;
+}
+
+.individual_color p {
+  background: white;
+  position: absolute;
+  bottom: 0;
+  margin: 0;
+  padding-bottom: 10px;
+  text-align: center;
+  width: 100%;
+  font-size: 48px;
+}
+
+img {
+  height: 50px;
+  width: 50px;
+  margin-left: 20px;
+  margin-top: 10px;
+}
+
+.home_btn {
+  float: right;
+  margin: 20px;
+  font-size: 24px;
+}
+
+.little_colors {
+  box-shadow: 2px 2px 2px 2px;
+  display: inline-block;
+  margin: 30px;
+  width: 150px;
+  height: 150px;
+  position: relative;
+  border-radius: 10px;
+}
+
+.little_colors p {
+  background: white;
+  position: absolute;
+  font-size: 20px;
+  width: 100%;
+  border-radius: 0px 0px 10px 10px;
+  text-align: center;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin: 0;
+  bottom: 0;
+}
+
+.random_btn {
+  margin-top: 150px;
+  background: white;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 18px;
+  border-width: 2px 2px 2px 2px;
+  border-color: black;
+  padding: 15px 25px 15px 25px;
+  font-weight: bold;
+}
+
+.sidebar_link {
+  text-align: left;
+  font-size: 24px;
+  padding-left: 50px;
 }
