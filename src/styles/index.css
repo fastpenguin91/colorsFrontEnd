@@ -6,7 +6,6 @@
   }
 }
 
-
 body {
   margin: 0;
   padding: 0;
@@ -23,10 +22,22 @@ h1 {
 
 .sidebar {
   height: 100%;
-  background: #d3d3d3;
+  background: #d6d8d8;
   width: 15%;
   position: fixed;
   text-align: center;
+}
+
+.theSidebar {
+  height: 100%;
+  background: #d6d8d8;
+  width: 15%;
+  position: fixed;
+  text-align: left;
+}
+
+.sidebar_mobile {
+  display: none;
 }
 
 .color_container {
@@ -35,6 +46,7 @@ h1 {
 
 input {
   max-width: 500px;
+  border-radius: 10px;
 }
 
 .gray {
@@ -60,7 +72,7 @@ input {
 .button {
   font-family: monospace;
   font-size: 10pt;
-  color: black;
+  color: #363c3c;
   background-color: buttonface;
   text-align: center;
   padding: 2px 6px 3px;
@@ -74,7 +86,7 @@ input {
 .header {
   width: 100%;
   height: 75px;
-  background: #3e5780 !important;
+  background: #363c3c !important;
   position: fixed;
   top: 0;
   z-index: 9;
@@ -98,19 +110,29 @@ input {
 .page_number {
   margin: 30px;
   font-size: 32px;
-  text-decoration: underline;
+  text-decoration: none;
   display: inline-block;
+  color: #363c3c;
+}
+
+.current_page {
+  font-weight: 700;
+  text-decoration: underline;
+  font-size: 32px;
+  color: blue;
 }
 
 .color_obj {
   display: inline-block;
-  width: 15vw;
-  min-width: 150px;
+  /*width: 15vw;
+  min-width: 150px;*/
   margin: 2%;
-  height: 15vw;
+  /* height: 15vw;*/
   border-radius: 15px;
   position: relative;
-  box-shadow: 2px 2px 2px 2px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.25);
+  width: 220px;
+  height: 261px;
 }
 
 .color_obj p {
@@ -118,12 +140,16 @@ input {
   position: absolute;
   bottom: 0;
   margin: 0;
-  padding-bottom: 0.25vw;
-  padding-top: 0.25vw;
+  /*padding-bottom: 0.25vw;
+  padding-top: 0.25vw;*/
   text-align: center;
   width: 100%;
   border-radius: 0px 0px 10px 10px;
-  font-size: 1em;
+  /*font-size: 1em;*/
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 24px;
+  font-weight: 400px;
 }
 
 .individual_color {
@@ -133,6 +159,7 @@ input {
   width: 650px;
   height: 650px;
   position: relative;
+  border-radius: 10px;
 }
 
 .individual_color p {
@@ -144,6 +171,7 @@ input {
   text-align: center;
   width: 100%;
   font-size: 48px;
+  border-radius: 0px 0px 10px 10px;
 }
 
 img {
@@ -157,6 +185,7 @@ img {
   float: right;
   margin: 20px;
   font-size: 24px;
+  color: #363c3c;
 }
 
 .little_colors {
@@ -167,6 +196,7 @@ img {
   height: 150px;
   position: relative;
   border-radius: 10px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.25);
 }
 
 .little_colors p {
@@ -184,6 +214,7 @@ img {
 
 .random_btn {
   margin-top: 150px;
+  margin-left: 10px;
   background: white;
   border-radius: 5px;
   padding: 10px;
@@ -191,23 +222,28 @@ img {
   border-width: 2px 2px 2px 2px;
   border-color: black;
   padding: 15px 25px 15px 25px;
-  font-weight: bold;
+  color: #363c3c;
+  font-weight: 700;
 }
 
 .sidebar_link {
   text-align: left;
   font-size: 24px;
-  padding-left: 50px;
+  /*padding-left: 50px;*/
+  margin-left:10px;
+  color: #363c3c;
+  text-decoration: none;
 }
 
-.page_numbers {
+.theSidebar a {
+  text-decoration: none;
 }
 
 @media screen and (max-width: 1000px) {
   .color_container {
     text-align: center;
   }
-
+  /*
   .color_obj {
     display: inline-block;
     width: 150px;
@@ -230,7 +266,7 @@ img {
     width: 100%;
     border-radius: 0px 0px 10px 10px;
     font-size: 1em;
-  }
+  }*/
 
   h1 {
     font-size: 4vw;
@@ -238,16 +274,18 @@ img {
 
   input {
     width: 20vw;
+    border-radius: 10px;
   }
 
-  .sidebar {
+  .sidebar_mobile {
     position: relative;
     display: inline-block;
     width: 100%;
     height: 100px;
-    background: #3e5780;
+    background: #d6d8d8;
     margin-top: 75px;
   }
+
   .dropdown_content {
     display: none;
     position: absolute;
@@ -274,5 +312,29 @@ img {
     display: inline-block;
   }
 
+  .individual_color {
+    border: 1px solid black;
+    display: inline-block;
+    margin: 10px;
+    width: 350px;
+    height: 350px;
+    position: relative;
+    border-radius: 10px;
+  }
 
+  .individual_color p {
+    background: white;
+    position: absolute;
+    bottom: 0;
+    margin: 0;
+    padding-bottom: 10px;
+    text-align: center;
+    width: 100%;
+    font-size: 32px;
+    border-radius: 0px 0px 10px 10px;
+  }
+
+  .theSidebar {
+    display: none;
+  }
 }

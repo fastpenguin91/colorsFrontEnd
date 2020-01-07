@@ -48,10 +48,10 @@ function Search() {
       <div class="header">
         <img src={logo} />
         <label class="header_label">
-          Search:
           <input
             id="searchID"
             type="text"
+            placeholder="Search"
             value={filter}
             onChange={e => setFilter(e.target.value)}
             autoFocus
@@ -74,7 +74,7 @@ function Search() {
       <div class="sidebar_adjust page_numbers">
         {numOfPagesArr.map(page => (
           <Link to={"/page/" + page}>
-            <span class="page_number">{page}</span>
+            <span class={"page_number " + (page == match.params.page ? "current_page" : "" )}>{page}</span>
           </Link>
         ))}
       </div>

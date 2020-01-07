@@ -25,6 +25,15 @@ function toggleDisplay() {
 
 let randomElem;
 function Sidebar() {
+  let commonColorsObj = [
+    {id: "ck4x91o61cwhd0993eqqawpyh", color: "Red"},
+    {id: "ck4x95qtucxml0993wexyfxv1", color: "Orange"},
+    {id: "ck4xsb6ha1dbt09225qwlqwmw", color: "Yellow"},
+    {id: "ck49m8kdx9khr0964dtsodo8m", color: "Green" },
+    {id: "ck4xsfxk61ehy0922vpjb0zc7", color: "Blue"},
+    {id: "ck4xsjbpai3tv0993nhk42s6c", color: "Purple"},
+    {id: "ck4xsks6b1gbl0922t8znwzr4", color: "Brown"},
+    {id: "ck4xslt5v1gk70922737ixrma", color: "Gray"}]
   return (
     <div>
       <Query query={COLORS_QUERY}>
@@ -41,36 +50,31 @@ function Sidebar() {
           let numOfPagesArr = [];
 
           return (
-            <div class="sidebar">
-              <RandomButton />
-              <button onClick={() => toggleDisplay() } class="dropbtn">
-                Common Colors
-              </button>
-              <div id="mydropdown" class="dropdown_content">
-                <Link to={"/color/ck4x91o61cwhd0993eqqawpyh"}>
-                  <p class="sidebar_link">Red</p>
-                </Link>
-                <Link to={"/color/ck4x95qtucxml0993wexyfxv1"}>
-                  <p class="sidebar_link">Orange</p>
-                </Link>
-                <Link to={"/color/ck4xsb6ha1dbt09225qwlqwmw"}>
-                  <p class="sidebar_link">Yellow</p>
-                </Link>
-                <Link to={"/color/ck49m8kdx9khr0964dtsodo8m"}>
-                  <p class="sidebar_link">Green</p>
-                </Link>
-                <Link to={"/color/ck4xsfxk61ehy0922vpjb0zc7"}>
-                  <p class="sidebar_link">Blue</p>
-                </Link>
-                <Link to={"/color/ck4xsjbpai3tv0993nhk42s6c"}>
-                  <p class="sidebar_link">Purple</p>
-                </Link>
-                <Link to={"/color/ck4xsks6b1gbl0922t8znwzr4"}>
-                  <p class="sidebar_link">Brown</p>
-                </Link>
-                <Link to={"/color/ck4xslt5v1gk70922737ixrma"}>
-                  <p class="sidebar_link">Gray</p>
-                </Link>
+            <div>
+              <div class="theSidebar">
+                <RandomButton />
+                <div>
+                  {commonColorsObj.map(obj => (
+                    <Link to={"/color/" + obj.id}>
+                      <p class="sidebar_link">{obj.color}</p>
+                    </Link> 
+                  ))}
+
+                </div>
+              </div>
+              <div class="sidebar_mobile">
+                <RandomButton />
+                <button onClick={() => toggleDisplay() } class="dropbtn">
+                  Common Colors
+                </button>
+                <div id="mydropdown" class="dropdown_content">
+
+                  {commonColorsObj.map(obj => (
+                    <Link to={"/color/" + obj.id}>
+                      <p class="sidebar_link">{obj.color}</p>
+                    </Link> 
+                  ))}
+                </div>
               </div>
             </div>
           );

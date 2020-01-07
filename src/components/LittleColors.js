@@ -8,7 +8,7 @@ import "../styles/index.css";
 function LittleColors() {
   let randomNum = Math.floor(Math.random() * 90);
 
-  const COLORS_QUERY = gql`query { colors( first: 3 skip: ${randomNum}) { id color_code } }`;
+  const COLORS_QUERY = gql`query { colors( first: 5 skip: ${randomNum}) { id color_code } }`;
   return (
     <div>
     <Query query={COLORS_QUERY}>
