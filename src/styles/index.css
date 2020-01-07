@@ -316,8 +316,8 @@ img {
     border: 1px solid black;
     display: inline-block;
     margin: 10px;
-    width: 350px;
-    height: 350px;
+    width: 45vw;
+    height: 45vw;
     position: relative;
     border-radius: 10px;
   }
