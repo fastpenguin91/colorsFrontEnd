@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../styles/index.css";
-import logo from '../logo.svg';
+import logo from "../logo.svg";
 
 import Sidebar from "./Sidebar";
 import {
@@ -35,7 +35,7 @@ function Search() {
   });
 
   if (loading) return "Loading...";
-  if (error) return <Redirect to="/" />; 
+  if (error) return <Redirect to="/" />;
 
   const numOfPages = Math.ceil(data.feed.count / 12);
   let numOfPagesArr = [];
@@ -49,24 +49,29 @@ function Search() {
         <img src={logo} />
         <label class="header_label">
           Search:
-          <input id="searchID" type="text" value={filter} onChange={e => setFilter(e.target.value)} autoFocus />
+          <input
+            id="searchID"
+            type="text"
+            value={filter}
+            onChange={e => setFilter(e.target.value)}
+            autoFocus
+          />
         </label>
       </div>
       <Sidebar />
       <div class="sidebar_adjust">
-      <h1 class="sidebar_adjust">Count: {data.feed.count}</h1>
-        {data.feed.colors.map(color => (
-          <Link to={"/color/" + color.id}>
-            <div style={{ display: "inline-block" }}>
-              <div class="color_obj" style={{ background: color.color_code,}} >
+        <h1 class="sidebar_adjust">Count: {data.feed.count}</h1>
+        <div class="color_container" style={{ display: "inline-block" }}>
+          {data.feed.colors.map(color => (
+            <Link to={"/color/" + color.id}>
+              <div class="color_obj" style={{ background: color.color_code }}>
                 <p> {color.color_code} </p>
               </div>
-            </div>
-          </Link>
-        ))}
+            </Link>
+          ))}
+        </div>
       </div>
-      <div class="sidebar_adjust page_numbers"
-      >
+      <div class="sidebar_adjust page_numbers">
         {numOfPagesArr.map(page => (
           <Link to={"/page/" + page}>
             <span class="page_number">{page}</span>
