@@ -14,7 +14,7 @@ import { useQuery } from "@apollo/react-hooks";
 
 function Search() {
   let match = useRouteMatch();
-  let skipNum = 12 * match.params.page;
+  let skipNum = 12 * (match.params.page - 1);
 
   const GET_FEED_COLORS = gql`
     query Feed_Query($filter: String!) {
@@ -39,7 +39,7 @@ function Search() {
 
   const numOfPages = Math.ceil(data.feed.count / 12);
   let numOfPagesArr = [];
-  for (let i = 0; i < numOfPages; i++) {
+  for (let i = 1; i <= numOfPages; i++) {
     numOfPagesArr.push(i);
   }
 
